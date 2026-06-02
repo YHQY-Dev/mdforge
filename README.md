@@ -56,4 +56,4 @@ src/mdforge/
 
 日志目录：`%USERPROFILE%\.mdforge\logs\`
 
-设置保存在系统 QSettings（组织 `MdForge`）。
+设置保存在系统 QSettings。

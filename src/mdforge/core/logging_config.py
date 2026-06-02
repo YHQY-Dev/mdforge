@@ -9,11 +9,14 @@ from loguru import logger
 def setup_logging(log_dir: Path | None = None) -> Path:
     """Configure loguru: console + rotating file under log_dir."""
     logger.remove()
-    logger.add(
-        sys.stderr,
-        level="INFO",
-        format="<green>{time:HH:mm:ss}</green> | <level>{level: <8}</level> | {message}",
-    )
+    # PyInstaller windowed builds (console=False) attach no stderr stream.
+    stderr = sys.stderr or getattr(sys, "__stderr__", None)
+    if stderr is not None:
+        logger.add(
+            stderr,
+            level="INFO",
+            format="<green>{time:HH:mm:ss}</green> | <level>{level: <8}</level> | {message}",
+        )
     if log_dir is None:
         log_dir = Path.home() / ".mdforge" / "logs"
     log_dir.mkdir(parents=True, exist_ok=True)

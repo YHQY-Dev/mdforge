@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "httpx>=0.28.1",
     "loguru>=0.7.3",
-    "markitdown[all]>=0.1.5",
+    "markitdown[pdf]>=0.1.5",
     "pyside6>=6.11.1",
     "python-dotenv>=1.0.0",
 ]

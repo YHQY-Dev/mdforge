@@ -12,3 +12,12 @@ wheels/
 .env
 examples/
 docs/
+
+release/
+# 测试
+.pytest_cache/
+tests/_tmp_*
+tests/_thread_test.md
+
+# 打包日志（可选）
+build-pyinstaller.log
